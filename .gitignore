@@ -60,3 +60,6 @@ docs/_build/
 
 # Work output
 out/
+
+# PlantUML executable
+plantuml*.jar
