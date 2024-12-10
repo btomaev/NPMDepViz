@@ -37,7 +37,7 @@ visualizer = /path/to/plantuml.jar
 ### Параметры:
 - `--repo` — Имя npm-репозитория для анализа.
 - `--config` — Путь к конфигурационному файлу.
-- `--visualizer` — Путь к PlantUML `.jar` файлу.
+- `--visualizer` — Путь к PlantUML `.jar` файлу (визуализатор не используется если параметр не указан).
 - `--registry` — URL npm-реестра (по умолчанию: https://registry.npmjs.org/).
 - `--out` — Директория для сохранения результатов (по умолчанию: `out`).
 
