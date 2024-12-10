@@ -47,12 +47,12 @@ def main():
     
     quoted_puml_path = _quoted_path(puml_path)
     quoted_graph_path = _quoted_path(graph_path)
-    quoted_executamle_path = _quoted_path(args.visualizer)
 
     print(f"{RETRACT_LINE}Puml source saved at {quoted_puml_path}.")
 
 
     if args.visualizer:
+        quoted_executamle_path = _quoted_path(args.visualizer)
         print(f"{RETRACT_LINE}Generating graph image...", end="")
         proc = Popen(f"java -jar {quoted_executamle_path} {puml_filename}", stdout=DEVNULL)
         proc.wait()
