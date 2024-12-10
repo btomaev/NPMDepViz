@@ -24,7 +24,7 @@ def build_deps(repo_name: str, registry_url: str, cb):
         for repo in new_deps:
             if repo not in deps:
                 yield repo
-                dep_repo, status = get_repo(repo, registry_url)
+                dep_repo, _ = get_repo(repo, registry_url)
                 new_transitive_deps = list(parse_deps(dep_repo) or []) 
                 deps.update({repo: new_transitive_deps})
                 transitive_deps.extend(new_transitive_deps)
