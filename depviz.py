@@ -37,12 +37,6 @@ def main():
     else:
         parser.error("you must specify config path or repository name.")
         return
-
-    proc = Popen("java -version", stdout=DEVNULL, stderr=DEVNULL, shell=True)
-    if proc.wait():
-        print("Java may not be installed or not in path.")
-        sys.exit(8) # software
-
     
     repo, status = get_repo(repo_name, registry_url)
     if repo is None:
@@ -75,6 +69,11 @@ def main():
     print(f"{RETRACT_LINE}Puml source saved at {quoted_puml_path}.")
 
     if visualizer:
+        proc = Popen("java -version", stdout=DEVNULL, stderr=DEVNULL, shell=True)
+        if proc.wait():
+            print("Java may not be installed or not in path.")
+            sys.exit(8) # software
+
         quoted_work_path = _quoted_path(pathjoin(output_dir, puml_filename))
         quoted_executamle_path = _quoted_path(visualizer)
         print(f"{RETRACT_LINE}Generating graph image...", end="")
