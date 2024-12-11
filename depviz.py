@@ -30,12 +30,12 @@ def main():
         repo_name = ini_config.get("config", "repo")
         registry_url = ini_config.get("config", "registry")
         visualizer = ini_config.get("config", "visualizer", fallback=None)
-    elif args.repo and args.repository:
+    elif args.repo:
         repo_name = args.repo.lower()
         registry_url = args.registry
         visualizer = args.visualizer
     else:
-        parser.error("you must specify config path or repository name and registry address.")
+        parser.error("you must specify config path or repository name.")
         return
 
     proc = Popen("java -version", stdout=DEVNULL, stderr=DEVNULL, shell=True)
