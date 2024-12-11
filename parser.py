@@ -1,5 +1,9 @@
 from requests import get
 from urllib.parse import urljoin
+from urllib3 import disable_warnings
+from urllib3.exceptions import InsecureRequestWarning
+
+disable_warnings(InsecureRequestWarning)
 
 def get_repo(name: str, registry_url: str):
     req = get(urljoin(registry_url, name), verify=False)
