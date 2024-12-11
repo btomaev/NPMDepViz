@@ -2,7 +2,7 @@ from requests import get
 from urllib.parse import urljoin
 
 def get_repo(name: str, registry_url: str):
-    req = get(urljoin(registry_url, name))
+    req = get(urljoin(registry_url, name), verify=False)
 
     if not req:
         return None, req.status_code
